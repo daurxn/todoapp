@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 # from pydantic import BaseModel, ConfigDict
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
 from models import init_db
 import requests as rq
@@ -12,7 +13,7 @@ import requests as rq
 async def lifespan(app_: FastAPI):
     await init_db()
     print('Bot is ready')
-    return
+    yield
 
 app = FastAPI(title='To Do App', lifespan=lifespan)
 

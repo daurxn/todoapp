@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, ForeignKey, String, BigInteger
 from sqlalchemy.orm import Mapped, DeclarativeBase, mapped_column
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
-engine = create_async_engine(url='sqlite+aiosqlite://db.sqlite3', echo=True)
+engine = create_async_engine(url='sqlite+aiosqlite:///db.sqlite3', echo=True)
 
 async_session = async_sessionmaker(bind=engine, expire_on_commit=False)
 
@@ -34,7 +34,7 @@ async def init_db():
 
     from sqlalchemy import Boolean, ForeignKey, String, BigInteger
 
-engine = create_async_engine(url='sqlite+aiosqlite://db.sqlite3', echo=True)
+engine = create_async_engine(url='sqlite+aiosqlite:///db.sqlite3', echo=True)
 
 async_session = async_sessionmaker(bind=engine, expire_on_commit=False)
 
