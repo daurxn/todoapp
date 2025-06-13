@@ -41,7 +41,7 @@ async def tasks(tg_id: int):
 @app.get('/api/main/{tg_id}')
 async def profile(tg_id):
     user = await rq.add_user(tg_id)
-    completed_tasks_count = rq.get_completed_tasks_count(user.id)
+    completed_tasks_count = await rq.get_completed_tasks_count(user.id)
     return {'completedTasks': completed_tasks_count}
 
 @app.post('/api/add')
